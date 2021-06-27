@@ -39,7 +39,7 @@ public class GithubProvider {
                 .url("https://api.github.com/user?access_token="+accsesToken)
                 .build();
         try {
-            Response response = client.newCall(request).execute();
+            Response response = client.newCall(request).execute( );
             String string =  response.body().string();
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
