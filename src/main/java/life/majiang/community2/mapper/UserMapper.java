@@ -9,6 +9,6 @@ import org.mybatis.spring.annotation.MapperScan;
 
 @Mapper
 public interface UserMapper {
-    @Insert("insert into (name,accountId,token,gmtCreate,gmtModified) values (#{name},#{accountId},#{token},#{gmtCreate},#{gmtModified})")
+    @Insert("insert into USER (name,account_Id,token,gmt_Create,gmt_Modified) values (#{name},#{accountId},#{token},#{gmtCreate},#{gmtModified})")
     void insert(User user);
 }
