@@ -18,7 +18,7 @@ public class IndexController {
     @GetMapping("/") //the root fold, default represent
     public String index(HttpServletRequest request){
         Cookie[] cookies = request.getCookies();
-        try {
+        if (cookies != null && cookies.length != 0)
             for (Cookie cookie:cookies){
                 if (cookie.getName().equals("token")){
                     String token = cookie.getValue();
@@ -30,10 +30,7 @@ public class IndexController {
                     break;
                 }
             }
-        }catch (java.lang.NullPointerException e){
-            // do nothing
-        }finally {
-            return "index";
-        }
+        return "index";
+
     }
 }
